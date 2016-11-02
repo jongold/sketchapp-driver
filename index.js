@@ -8,11 +8,11 @@ var TMP_DIR = 'tmp';
 var MAGIC_LINE_CORRECTION = 5;
 var MAGIC_LINE_IMPORT_CORRECTION = 5;
 
-if (!fs.existsSync(TMP_DIR)){
-  fs.mkdirSync(TMP_DIR);
+if (!fs.existsSync(path.join(__dirname, TMP_DIR))){
+  fs.mkdirSync(path.join(__dirname, TMP_DIR));
 }
 
-var header = fs.readFileSync('header.cocoascript', 'utf-8');
+var header = fs.readFileSync(path.join(__dirname, 'header.cocoascript'), 'utf-8');
 
 function isErrorMessage(msg) {
   return (msg.indexOf('line: ') != -1
